@@ -1,13 +1,24 @@
 import { useState, useEffect } from "react";
 import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
+import Loading from "./components/Loading";
 import axios from "axios";
 const apiUrl = "http://localhost:3000/";
 
 function Map() {
     const [quakes, setQuakes] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
+
     useEffect(() => {
-        axios.get(apiUrl).then((res) => {
+        axios.get(apiUrl)
+        .then((res) => {
             setQuakes(res.data);
+            setLoading(false);
+        })
+        .catch((err) => {
+            setError(true);
+            setErrorMessage(err.message);
         });
     }, []);
 
@@ -36,7 +47,10 @@ DEPTH: ${quake.depth}`;
 
     return (
         <div className="map">
-            <MapContainer
+
+            {loading && <Loading error={error} errorMessage={errorMessage}/>}
+
+            {!loading && <MapContainer
                 center={[39, 35]}
                 zoom={7}
                 scrollWheelZoom={false}
@@ -64,7 +78,7 @@ DEPTH: ${quake.depth}`;
                         </CircleMarker>
                     );
                 })}
-            </MapContainer>
+            </MapContainer>}
         </div>
     );
 }

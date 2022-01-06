@@ -10,6 +10,15 @@ nav {
     height: 5%;
 }
 
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    text-align: center;
+}
+
 .map {
     height: 92%;
     border: solid 2px black;
