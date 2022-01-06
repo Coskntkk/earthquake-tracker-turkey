@@ -1,5 +1,14 @@
 class Earthquake {
-    constructor(date, time, latitude, longitude, depth, magnitude, place, city) {
+    constructor(
+        date,
+        time,
+        latitude,
+        longitude,
+        depth,
+        magnitude,
+        place,
+        city
+    ) {
         this.date = date;
         this.time = time;
         this.latitude = latitude;
