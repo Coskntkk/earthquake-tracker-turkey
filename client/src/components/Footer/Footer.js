@@ -2,7 +2,7 @@ function Footer() {
     return (
         <footer className="footer">
             <strong>
-                2022 &copy; Coşkun Atak <i className="fab fa-github"></i>
+                2022 &copy; Coşkun Atak <a href="https://github.com/Coskntkk/earthquake-tracker-turkey"><i className="fab fa-github"></i></a>
             </strong>
         </footer>
     );
