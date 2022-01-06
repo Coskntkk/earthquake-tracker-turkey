@@ -1,0 +1,23 @@
+html,
+body,
+#root,
+.leaflet-container {
+    height: 100%;
+}
+
+nav {
+    background-color: darkgoldenrod;
+    height: 5%;
+}
+
+.map {
+    height: 92%;
+    border: solid 2px black;
+    box-sizing: border-box;
+}
+
+footer {
+    background-color: blueviolet;
+    height: 3%;
+    text-align: center;
+}

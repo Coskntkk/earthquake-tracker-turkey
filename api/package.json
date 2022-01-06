@@ -1,0 +1,19 @@
+{
+  "name": "earthquake-tracker-turkey-api",
+  "version": "1.0.0",
+  "description": "A simple API to get earthquake data from the Kandilli Earthquake Database",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Coşkun Atak",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "request": "^2.88.0"
+  }
+}
