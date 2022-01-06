@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
 import Loading from "./components/Loading";
 import axios from "axios";
-const apiUrl = "http://localhost:3000/";
+import { nanoid } from "nanoid";
+const apiUrl = "https://earthquake-tracker-tr-api.herokuapp.com/";
 
 function Map() {
     const [quakes, setQuakes] = useState([]);
@@ -22,9 +23,9 @@ function Map() {
         });
     }, []);
 
-    useEffect(() => {
-        console.log(quakes);
-    }, [quakes]);
+    // useEffect(() => {
+    //     console.log(quakes);
+    // }, [quakes]);
 
     function getColor(mag) {
         if (mag < 2) {
@@ -42,7 +43,7 @@ function Map() {
         return `PLACE: ${quake.place} ${quake.city}\n
 DATE: ${quake.date} ${quake.time}\n
 MAGNITUDE: ${quake.magnitude}\n
-DEPTH: ${quake.depth}`;
+DEPTH: ${quake.depth}km`;
     }
 
     return (
@@ -55,7 +56,6 @@ DEPTH: ${quake.depth}`;
                 zoom={7}
                 scrollWheelZoom={false}
                 doubleClickZoom={false}
-                closePopupOnClick={false}
                 dragging={false}
                 zoomSnap={false}
                 zoomDelta={false}
@@ -70,6 +70,7 @@ DEPTH: ${quake.depth}`;
                 {quakes.map((quake) => {
                     return (
                         <CircleMarker
+                            key={nanoid()}
                             center={[quake.latitude, quake.longitude]}
                             pathOptions={{ color: getColor(quake.magnitude) }}
                             radius={quake.magnitude * 5}

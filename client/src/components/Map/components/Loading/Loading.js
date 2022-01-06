@@ -3,12 +3,12 @@ function Loading({error, errorMessage}) {
         <div className="loading">
 
             {!error && <>
-                <i class="fas fa-cog fa-spin fa-3x"></i>
+                <i className="fas fa-cog fa-spin fa-3x"></i>
                 <h3>Connecting to API...</h3>
             </>}
 
             {error && <>
-                <i class="fas fa-exclamation-triangle fa-3x"></i>
+                <i className="fas fa-exclamation-triangle fa-3x"></i>
                 <h3>{errorMessage}</h3>
             </>}
 
