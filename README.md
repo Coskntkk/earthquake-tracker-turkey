@@ -13,9 +13,9 @@ A react-leaflet & express app for visualizing the latest earthquake data from [K
 
 ## Demo
 
-Visit [ Kandilli Observatory Last 500 Earthquakes API ](https://earthquake-tracker-tr-api.herokuapp.com/)
+Visit [Kandilli Observatory Last 500 Earthquakes API](https://earthquake-tracker-tr-api.herokuapp.com/).
 
-Visit [ Earthquake Tracker Turkey ]( https://earthquake-tracker-turkey.vercel.app).
+Visit [Earthquake Tracker Turkey](https://earthquake-tracker-turkey.vercel.app).
 
 ## Installation
 
