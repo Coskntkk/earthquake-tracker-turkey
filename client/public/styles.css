@@ -6,7 +6,7 @@ body,
 }
 
 nav {
-    background-color: darkgoldenrod;
+    background-color: aquamarine;
     height: 5%;
 }
 
@@ -20,13 +20,23 @@ nav {
 }
 
 .map {
-    height: 92%;
+    height: 100%;
     border: solid 2px black;
     box-sizing: border-box;
 }
 
+.row, .column {
+    padding: 0;
+    margin: 0;
+}
+
 footer {
-    background-color: blueviolet;
+    background-color: aquamarine;
     height: 3%;
     text-align: center;
+}
+
+.footerlink {
+    text-decoration: none;
+    color: black;
 }

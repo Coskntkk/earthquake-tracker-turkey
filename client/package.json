@@ -40,6 +40,7 @@
         ]
     },
     "devDependencies": {
+        "json-loader": "^0.5.7",
         "prettier": "2.5.1"
     }
 }

@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
 import Loading from "./components/Loading";
+import Faults from "./components/Faults";
 import axios from "axios";
 import { nanoid } from "nanoid";
 const apiUrl = "https://earthquake-tracker-tr-api.herokuapp.com/";
 
-function Map() {
+function Map({toggleFaults}) {
     const [quakes, setQuakes] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
@@ -13,14 +14,14 @@ function Map() {
 
     useEffect(() => {
         axios.get(apiUrl)
-        .then((res) => {
-            setQuakes(res.data);
-            setLoading(false);
-        })
-        .catch((err) => {
-            setError(true);
-            setErrorMessage(err.message);
-        });
+            .then((res) => {
+                setQuakes(res.data);
+                setLoading(false);
+            })
+            .catch((err) => {
+                setError(true);
+                setErrorMessage(err.message);
+            });
     }, []);
 
     // useEffect(() => {
@@ -49,23 +50,25 @@ DEPTH: ${quake.depth}km`;
     return (
         <div className="map">
 
-            {loading && <Loading error={error} errorMessage={errorMessage}/>}
+            {loading && <Loading error={error} errorMessage={errorMessage} />}
 
             {!loading && <MapContainer
                 center={[39, 35]}
                 zoom={7}
-                scrollWheelZoom={false}
-                doubleClickZoom={false}
-                dragging={false}
-                zoomSnap={false}
-                zoomDelta={false}
-                trackResize={false}
-                touchZoom={false}
+            // scrollWheelZoom={false}
+            // doubleClickZoom={false}
+            // dragging={false}
+            // zoomSnap={false}
+            // zoomDelta={false}
+            // trackResize={false}
+            // touchZoom={false}
             >
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
+
+                {toggleFaults && <Faults />}
 
                 {quakes.map((quake) => {
                     return (
