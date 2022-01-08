@@ -1,1 +1,1 @@
-export {default} from './Faults';
+export { default } from "./Faults";

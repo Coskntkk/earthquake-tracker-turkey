@@ -25,9 +25,22 @@ nav {
     box-sizing: border-box;
 }
 
-.row, .column {
+.row,
+.column {
     padding: 0;
     margin: 0;
+}
+.left {
+    padding-top: 0.5em;
+    text-align: center;
+}
+.squares {
+    border: 1px solid black;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 0.5em;
+    margin: 0.5em;
 }
 
 footer {
