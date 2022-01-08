@@ -6,7 +6,7 @@ body,
 }
 
 nav {
-    background-color: darkgoldenrod;
+    background-color: aquamarine;
     height: 5%;
 }
 
@@ -20,13 +20,36 @@ nav {
 }
 
 .map {
-    height: 92%;
+    height: 100%;
     border: solid 2px black;
     box-sizing: border-box;
 }
 
+.row,
+.column {
+    padding: 0;
+    margin: 0;
+}
+.left {
+    padding-top: 0.5em;
+    text-align: center;
+}
+.squares {
+    border: 1px solid black;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 0.5em;
+    margin: 0.5em;
+}
+
 footer {
-    background-color: blueviolet;
+    background-color: aquamarine;
     height: 3%;
     text-align: center;
+}
+
+.footerlink {
+    text-decoration: none;
+    color: black;
 }
