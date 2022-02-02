@@ -23,6 +23,7 @@ nav {
     height: 100%;
     border: solid 2px black;
     box-sizing: border-box;
+    padding: 0;
 }
 
 .row,
@@ -33,6 +34,11 @@ nav {
 .left {
     padding-top: 0.5em;
     text-align: center;
+    font-size: 1.5vh;
+}
+.left-button {
+    padding: 0.25em;
+    margin: 0.25em;
 }
 .squares {
     border: 1px solid black;
@@ -41,6 +47,14 @@ nav {
     text-align: center;
     padding: 0.5em;
     margin: 0.5em;
+}
+.provinces {
+    margin: 0.5em;
+    font-size: 1.5vh;
+}
+select, option {
+    font-size: 1.5vh;
+    width: 100%;
 }
 
 footer {

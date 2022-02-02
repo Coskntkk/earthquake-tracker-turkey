@@ -1,4 +1,7 @@
-function Left({ toggleFaults, setToggleFaults, setCount, minMagnitude, setMinMagnitude, maxMagnitude, setMaxMagnitude }) {
+import Province from "./Province";
+
+function Left({ toggleFaults, setToggleFaults, setCount, minMagnitude, 
+    setMinMagnitude, maxMagnitude, setMaxMagnitude, setRefresh, setProvince }) {
 
     function handleToggle() {
         setToggleFaults(!toggleFaults);
@@ -9,11 +12,14 @@ function Left({ toggleFaults, setToggleFaults, setCount, minMagnitude, setMinMag
     }
 
     return (
-        <div className="col-md-1 column left">
-            <button className="btn btn-info" onClick={() => handleToggle()}>Toggle Fault Lines</button>
+        <div className="col-lg-1 col-md-12 column left">
+
+            <button className="btn btn-info left-button" onClick={() => setRefresh(true)}>Refresh</button>
+
+            <button className="btn btn-info left-button" onClick={() => handleToggle()}>Toggle Fault Lines</button>
 
             <div className="squares">
-                <label>Count of last earthquakes:</label>
+                <label>Count of earthquakes: </label>
                 <input
                     type="number"
                     name="count"
@@ -26,7 +32,7 @@ function Left({ toggleFaults, setToggleFaults, setCount, minMagnitude, setMinMag
             </div>
 
             <div className="squares">
-                <label>Min magnitude:</label>
+                <label>Min magnitude: </label>
                 <input
                     type="number"
                     name="count"
@@ -40,7 +46,7 @@ function Left({ toggleFaults, setToggleFaults, setCount, minMagnitude, setMinMag
             </div>
 
             <div className="squares">
-                <label>Max magnitude:</label>
+                <label>Max magnitude: </label>
                 <input
                     type="number"
                     name="count"
@@ -52,6 +58,8 @@ function Left({ toggleFaults, setToggleFaults, setCount, minMagnitude, setMinMag
                     onChange={(e) => setMaxMagnitude(e.target.value)}
                 />
             </div>
+
+            <Province setProvince={setProvince} />
         </div>
     );
 }

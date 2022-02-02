@@ -17,15 +17,18 @@ function Map() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+    const [refresh, setRefresh] = useState(true);
 
     // Filters
     const [toggleFaults, setToggleFaults] = useState(false);
     const [count, setCount] = useState(100);
     const [minMagnitude, setMinMagnitude] = useState(0);
     const [maxMagnitude, setMaxMagnitude] = useState(10);
+    const [province, setProvince] = useState("");
 
     useEffect(() => {
-        axios.get(apiUrl)
+        if (refresh) {
+            axios.get(apiUrl)
             .then((res) => {
                 setQuakes(res.data);
                 setLoading(false);
@@ -34,7 +37,9 @@ function Map() {
                 setError(true);
                 setErrorMessage(err.message);
             });
-    }, []);
+            setRefresh(false);
+        }
+    }, [refresh]);
 
     // useEffect(() => {
     //     console.log(quakes);
@@ -65,13 +70,14 @@ DEPTH: ${quake.depth}km`;
                 {/* Left frame for filters */}
                 <Left 
                     toggleFaults={toggleFaults} setToggleFaults={setToggleFaults} 
-                    setCount={setCount} 
+                    setCount={setCount} setRefresh={setRefresh}
                     minMagnitude={minMagnitude} setMinMagnitude={setMinMagnitude}
                     maxMagnitude={maxMagnitude} setMaxMagnitude={setMaxMagnitude}
+                    setProvince={setProvince}
                 />
 
                 {/* Main Frame for map */}
-                <div className="col-md-11 map">
+                <div className="col-lg-11 col-md-12 map">
 
                     {/* Loading & Error Screen */}
                     {loading && <Loading error={error} errorMessage={errorMessage} />}
@@ -100,6 +106,8 @@ DEPTH: ${quake.depth}km`;
                             .slice(0, count)
                             // Filter by magnitude
                             .filter((quake) => quake.magnitude >= minMagnitude && quake.magnitude <= maxMagnitude)
+                            // Filter by province
+                            .filter((quake) => quake.city.includes(province) || quake.place.includes(province))
                             // Map to markers
                             .map((quake) => {
                                 return (
