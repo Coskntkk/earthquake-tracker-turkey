@@ -9,7 +9,7 @@ import Left from "./components/Left";
 import Loading from "./components/Loading";
 import Faults from "./components/Faults";
 // Api Urş
-const apiUrl = "https://earthquake-tracker-tr-api.herokuapp.com/";
+const apiUrl = "https://api-earthquake-turkey.cyclic.app/";
 
 function Map() {
     // States
