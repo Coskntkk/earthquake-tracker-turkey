@@ -1,22 +1,47 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 html,
 body,
 #root,
 .leaflet-container {
     height: 100%;
 }
-
+/* Navigation bar */
 nav {
-    background-color: aquamarine;
-    height: 5%;
+    background-color: #0a2647;
+    color: white;
+    height: 4.99%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1em;
+}
+.tools {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    background-color: #2c74b3;
+    padding: 0 0.5em;
+    cursor: pointer;
+}
+.tools:hover {
+    background-color: #205295;
 }
 
+/* Map */
 .loading {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2em;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+    background-color: #82C3EC;
 }
 
 .map {
@@ -35,6 +60,7 @@ nav {
     padding-top: 0.5em;
     text-align: center;
     font-size: 1.5vh;
+    background-color: #2c74b3;
 }
 .left-button {
     padding: 0.25em;
@@ -47,23 +73,27 @@ nav {
     text-align: center;
     padding: 0.5em;
     margin: 0.5em;
+    background-color: white;
 }
 .provinces {
     margin: 0.5em;
     font-size: 1.5vh;
 }
-select, option {
+select,
+option {
     font-size: 1.5vh;
     width: 100%;
 }
 
+/* Footer */
 footer {
-    background-color: aquamarine;
+    background-color: #144272;
+    color: #fffbeb;
     height: 3%;
     text-align: center;
 }
 
 .footerlink {
     text-decoration: none;
-    color: black;
+    color: #fffbeb;
 }

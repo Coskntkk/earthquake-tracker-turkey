@@ -1,11 +1,19 @@
+import { useContext } from "react";
+import { SidebarContext } from "../../context/sidebarContext";
+
 function Navbar() {
+    const { sidebarVisible, setSidebarVisible } = useContext(SidebarContext);
+
     return (
-        <nav className="navbar navbar-light">
-            <div className="container-fluid">
-                <span className="navbar-brand mb-0 h1">
-                    <strong>Earthquake Tracker Turkey</strong>
-                </span>
-            </div>
+        <nav>
+            <strong>Earthquake Tracker Turkey</strong>
+            <button
+                type="button"
+                className="tools"
+                onClick={() => setSidebarVisible(!sidebarVisible)}
+            >
+                Tools
+            </button>
         </nav>
     );
 }
