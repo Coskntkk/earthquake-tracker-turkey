@@ -3,12 +3,8 @@ import { SidebarContext } from "../../../../context/sidebarContext";
 
 function Left() {
     const { 
-        filters, setFilters, 
-        toggleFaults, setToggleFaults,
+        filters, setFilters
     } = useContext(SidebarContext);
-    function handleToggle() {
-        setToggleFaults(!toggleFaults);
-    }
 
     function handleCount(e, count) {
         setFilters({
@@ -19,11 +15,6 @@ function Left() {
 
     return (<>
         <div className="col-lg-3 col-md-12 column left">
-            <button className="btn btn-info left-button" onClick={() => handleToggle()}>
-                <i class="fa-solid fa-layer-group"></i>{" "}
-                Toggle Fault Lines
-            </button>
-
             <div className="squares">
                 <label>Count of earthquakes: </label>
                 <input
