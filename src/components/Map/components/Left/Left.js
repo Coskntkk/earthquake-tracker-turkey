@@ -3,7 +3,6 @@ import { SidebarContext } from "../../../../context/sidebarContext";
 
 function Left() {
     const { 
-        setRefresh,
         filters, setFilters, 
         toggleFaults, setToggleFaults,
     } = useContext(SidebarContext);
@@ -20,11 +19,6 @@ function Left() {
 
     return (<>
         <div className="col-lg-3 col-md-12 column left">
-            <button className="btn btn-info left-button" onClick={() => setRefresh(true)}>
-                <i className="fa-solid fa-arrows-rotate"></i>{" "}
-                Refresh
-            </button>
-            <br />
             <button className="btn btn-info left-button" onClick={() => handleToggle()}>
                 <i class="fa-solid fa-layer-group"></i>{" "}
                 Toggle Fault Lines

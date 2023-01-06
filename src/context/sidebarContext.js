@@ -7,7 +7,8 @@ export const SidebarContext = createContext();
 
 const SidebarContextProvider = ({ children }) => {
     // Api Url
-    const apiUrl = "https://api-earthquake-turkey.cyclic.app/";
+    // const apiUrl = "https://api-earthquake-turkey.cyclic.app/";
+    const apiUrl = "http://localhost:3001/api/v1/earthquakes";
     // Sidebar control
     const [sidebarVisible, setSidebarVisible] = useState(false);
     // Refresh
@@ -25,7 +26,7 @@ const SidebarContextProvider = ({ children }) => {
     const getEarthquakes = async () => {
         axios.get(apiUrl)
             .then((res) => {
-                setEarthquakes(res.data);
+                setEarthquakes(res.data.data);
             })
             .catch((err) => {
                 console.log(err);
