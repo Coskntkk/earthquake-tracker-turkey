@@ -17,24 +17,24 @@ function Navbar() {
                     className="tools"
                     onClick={() => setRefresh(true)}
                 >
-                    <i className="fa-solid fa-arrows-rotate fa-xs"></i>&nbsp;
-                    Refresh
+                    <i className="fa-solid fa-arrows-rotate"></i>
+                    <span>&nbsp;Refresh</span>
                 </button>
                 <button
                     type="button"
                     className="tools"
                     onClick={() => setToggleFaults(!toggleFaults)}
                 >
-                    <i class="fa-solid fa-grip-lines"></i>&nbsp;
-                    Fault Lines
+                    <i className="fa-solid fa-grip-lines"></i>
+                    <span>&nbsp;Fault Lines</span>
                 </button>
                 <button
                     type="button"
                     className="tools"
                     onClick={() => setSidebarVisible(!sidebarVisible)}
                 >
-                    <i className="fa-solid fa-filter fa-xs"></i>&nbsp;
-                    Filter
+                    <i className="fa-solid fa-filter"></i>
+                    <span>&nbsp;Filter</span>
                 </button>
             </div>
         </nav>

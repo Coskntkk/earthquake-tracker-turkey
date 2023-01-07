@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 // Hooks
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
@@ -10,12 +11,14 @@ const SidebarContextProvider = ({ children }) => {
     // const apiUrl = "https://api-earthquake-turkey.cyclic.app/";
     const apiUrl = "http://localhost:3001/api/v1/earthquakes";
     // Sidebar control
-    const [sidebarVisible, setSidebarVisible] = useState(false);
+    const [sidebarVisible, setSidebarVisible] = useState(true);
     // Refresh
     const [refresh, setRefresh] = useState(true);
     // Filters
     const [filters, setFilters] = useState({
         count: 100,
+        sort_by: "date",
+        order: "desc",
     });
     // Faults
     const [toggleFaults, setToggleFaults] = useState(false);
@@ -24,7 +27,11 @@ const SidebarContextProvider = ({ children }) => {
 
     // Get earthquakes
     const getEarthquakes = async () => {
-        axios.get(apiUrl)
+        let query = "?";
+        for (const key in filters) {
+            query += `${key}=${filters[key]}&`;
+        }
+        axios.get(apiUrl + query)
             .then((res) => {
                 setEarthquakes(res.data.data);
             })
@@ -38,10 +45,11 @@ const SidebarContextProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        if (refresh) {
+        let timer = setTimeout(() => {
             getEarthquakes();
-        }
-    }, [refresh]);
+        }, 300);
+        return () => clearTimeout(timer);
+    }, [refresh, filters]);
 
     return (
         <SidebarContext.Provider value={{
