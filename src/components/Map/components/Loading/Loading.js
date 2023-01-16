@@ -1,10 +1,11 @@
 function Loading({ error, errorMessage }) {
+
     return (
-        <div className="loading">
+        <div className="loading col-lg-12 col-md-12">
             {!error && (
                 <>
                     <i className="fas fa-cog fa-spin fa-3x"></i>
-                    <h3>Connecting to API...</h3>
+                    <h3>Loading...</h3>
                 </>
             )}
 

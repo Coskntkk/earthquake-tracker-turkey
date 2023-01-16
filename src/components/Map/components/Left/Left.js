@@ -1,66 +1,48 @@
-import Province from "./Province";
+import { useContext } from "react";
+import { SidebarContext } from "../../../../context/sidebarContext";
 
-function Left({ toggleFaults, setToggleFaults, setCount, minMagnitude, 
-    setMinMagnitude, maxMagnitude, setMaxMagnitude, setRefresh, setProvince }) {
+function Left() {
+    const {
+        filters, setFilters
+    } = useContext(SidebarContext);
 
-    function handleToggle() {
-        setToggleFaults(!toggleFaults);
+    function handleChange(e) {
+        setFilters({
+            ...filters,
+            [e.target.name]: e.target.value
+        });
     }
 
-    function handleCount(e, count) {
-        setCount(count);
+    function handleResetFilters() {
+        setFilters({
+            count: 100,
+            sort_by: "date",
+            order: "desc",
+        });
     }
 
-    return (
-        <div className="col-lg-1 col-md-12 column left">
-
-            <button className="btn btn-info left-button" onClick={() => setRefresh(true)}>Refresh</button>
-
-            <button className="btn btn-info left-button" onClick={() => handleToggle()}>Toggle Fault Lines</button>
-
-            <div className="squares">
-                <label>Count of earthquakes: </label>
-                <input
-                    type="number"
-                    name="count"
-                    id="quakecount"
-                    min={1}
-                    max={500}
-                    defaultValue={100}
-                    onChange={(e) => handleCount(e, e.target.value)}
-                />
+    return (<>
+        <div className="col-lg-3 col-md-12 column left">
+            <div className="mb-12 d-flex justify-content-center">
+                <button className="tools" onClick={handleResetFilters}> Reset Filters </button>
             </div>
-
-            <div className="squares">
-                <label>Min magnitude: </label>
-                <input
-                    type="number"
-                    name="count"
-                    id="minmagnitude"
-                    min={0}
-                    max={maxMagnitude}
-                    defaultValue={0}
-                    step={0.1}
-                    onChange={(e) => setMinMagnitude(e.target.value)}
-                />
+            <hr />
+            <div className="mb-3">
+                <label htmlFor="customRange1" className="form-label">Count of earthquakes</label>
+                <input type="range" className="form-range range" id="customRange1" min="1" max="500" step="1" value={filters.count} onChange={handleChange} name="count" />
+                <div className="count">{filters.count}</div>
             </div>
-
-            <div className="squares">
-                <label>Max magnitude: </label>
-                <input
-                    type="number"
-                    name="count"
-                    id="maxmagnitude"
-                    min={minMagnitude}
-                    max={10}
-                    defaultValue={10}
-                    step={0.1}
-                    onChange={(e) => setMaxMagnitude(e.target.value)}
-                />
+            <hr />
+            <div className="mb-3">
+                <label htmlFor="exampleInputPassword1" className="form-label">Sort by</label>
+                <select className="form-select" onChange={handleChange} name="sort_by">
+                    <option value="date">Date</option>
+                    <option value="magnitude">Magnitude</option>
+                    <option value="depth">Depth</option>
+                </select>
             </div>
-
-            <Province setProvince={setProvince} />
         </div>
+    </>
     );
 }
 

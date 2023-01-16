@@ -1,0 +1,12 @@
+/* Footer */
+footer {
+    background-color: #144272;
+    color: #fffbeb;
+    height: 3%;
+    text-align: center;
+}
+
+.footerlink {
+    text-decoration: none;
+    color: #fffbeb;
+}
