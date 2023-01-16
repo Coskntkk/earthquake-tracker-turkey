@@ -8,8 +8,8 @@ export const SidebarContext = createContext();
 
 const SidebarContextProvider = ({ children }) => {
     // Api Url
-    // const apiUrl = "https://api-earthquake-turkey.cyclic.app/";
-    const apiUrl = "http://localhost:3001/api/v1/earthquakes";
+    const apiUrl = "https://api-earthquake-turkey.cyclic.app/api/v1/earthquakes";
+    // const apiUrl = "http://localhost:3001/api/v1/earthquakes";
     // Sidebar control
     const [sidebarVisible, setSidebarVisible] = useState(true);
     // Refresh

@@ -16,23 +16,7 @@ const apiUrl = "https://api-earthquake-turkey.cyclic.app/";
 function Map() {
     const { sidebarVisible, toggleFaults, earthquakes, refresh } = useContext(SidebarContext);
     // States
-    const [error, setError] = useState(false);
-    const [errorMessage, setErrorMessage] = useState("");
-
-    // useEffect(() => {
-    //     if (refresh) {
-    //         axios.get(apiUrl)
-    //             .then((res) => {
-    //                 setQuakes(res.data);
-    //                 setLoading(false);
-    //             })
-    //             .catch((err) => {
-    //                 setError(true);
-    //                 setErrorMessage(err.message);
-    //             });
-    //         setRefresh(false);
-    //     }
-    // }, [refresh]);
+    const [error] = useState(false);
 
     // Functions for earthquake markers
     function getColor(mag) {
@@ -48,7 +32,7 @@ function Map() {
     }
     function getInfo(quake) {
         return `PLACE: ${quake.place} ${quake.city}\n
-DATE: ${quake.date} ${quake.time}\n
+DATE: ${quake.date.split("T").join(" ").split("+")[0]} TSİ\n
 MAGNITUDE: ${quake.magnitude}\n
 DEPTH: ${quake.depth}km`;
     }
