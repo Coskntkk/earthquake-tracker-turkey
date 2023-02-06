@@ -15,7 +15,7 @@ function Left() {
 
     function handleResetFilters() {
         setFilters({
-            count: 100,
+            count: 500,
             sort_by: "date",
             order: "desc",
         });
