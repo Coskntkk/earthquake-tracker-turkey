@@ -16,7 +16,7 @@ const SidebarContextProvider = ({ children }) => {
     const [refresh, setRefresh] = useState(true);
     // Filters
     const [filters, setFilters] = useState({
-        count: 100,
+        count: 500,
         sort_by: "date",
         order: "desc",
     });
